@@ -2,16 +2,14 @@ import { Fragment } from 'react'
 import './App.css'
 
 function App() {
-  
-  const regist = document.getElementById("addTodo");
-  regist.addEventListener("click", () => {
+  const regist = () => {
     //空欄チェック
-    let check = document.getElementById("thing").value;
-    let error = document.getElementById("error");
+    let check = document.getElementById('thing').value
+    let error = document.getElementById('error')
     if (check === '') {
-      error = 'やることを入力してね＾＾'
+      error.innerHTML = 'やることを入力してね＾＾'
     } else {
-      error = ''
+      error.innerHTML = ''
       //リストに追加
       //tableの参照を取得
       let table = document.getElementById('list')
@@ -42,7 +40,7 @@ function App() {
       cell3.appendChild(btn)
     }
   }
-  
+
   return (
     <Fragment>
       <div className="App">
