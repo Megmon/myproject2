@@ -1,7 +1,12 @@
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import './App.css'
 
 function App() {
+  const [newThing, setThing] = useState('')
+  const changeThing = setThing(thing.value)
+  const [isError, setIsError] = useState(false)
+  const onClickRegit = setIsError(newThing || !isError)
+  /*
   const regist = () => {
     //空欄チェック
     let check = document.getElementById('thing').value
@@ -40,30 +45,29 @@ function App() {
       cell3.appendChild(btn)
     }
   }
+  */
 
   return (
     <Fragment>
       <div className="App">
         <header className="App-header">
-          <div id="title">
+          <div>
             <h1>やることリスト</h1>
           </div>
-          <div id="today"></div>
+          <div>TODAY:</div>
         </header>
-        <div id="main">
+        <div>
           <div>
             <form>
-              <input id="thing" />
-              <input id="deadline" type="date" />
-              <button onClick={regist}>登録</button>
+              <input type="text" name="thing" onChange={changeThing} value={this.state.value} />
+              <input type="date" name="deadline" />
+              <button onClick={onClickRegit}>登録</button>
             </form>
+            {isError && <span>やることを入力してね＾＾</span>}
           </div>
           <div>
-            <span id="error"></span>
-          </div>
-          <div>
-            <table id="list"></table>
-            <table id="compList"></table>
+            <table></table>
+            <table></table>
           </div>
         </div>
       </div>
